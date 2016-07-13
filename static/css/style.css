@@ -1,0 +1,28 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #ccc;
+
+	font-family: arial, helvetics, sans-serif;
+	font-size: 16px;
+	line-height: 1.5em;
+}
+body .content {
+	border: 1px solid #aaa;
+	border-radius: 10px;
+	background-color: #fff;
+
+	width: 90%;
+	margin: 1em auto;
+
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+body .content a {
+	margin-top: 10px;
+	text-decoration: none;
+}
+body .content a,
+body .content a img {
+	border-style: none;
+}
