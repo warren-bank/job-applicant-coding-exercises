@@ -60,12 +60,13 @@ mysql -u root < "./.install/db.sql"
 * create user `warren_bank`
 * create tables `sessions`, `admin_users`
 * add login credentials for two admin users
-** `warren:bank`
-** `SumoMe:hire`
+  * `warren:bank`
+  * `SumoMe:hire`
 
 ### Start the Web Server
 
 ```bash
+PORT=80
 npm run-script start
 ```
 
