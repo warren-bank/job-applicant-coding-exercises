@@ -1,5 +1,5 @@
 module.exports = function(Sequelize, sequelize){
-  var User = sequelize.define('user',
+  var Survey = sequelize.define('survey',
     {
       id: {
         type: Sequelize.INTEGER.UNSIGNED,
@@ -8,24 +8,24 @@ module.exports = function(Sequelize, sequelize){
         autoIncrement: true,
         allowNull: false
       },
-      username: {
+      title: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      password: {
-        type: Sequelize.STRING,
+      question: {
+        type: Sequelize.TEXT,
         allowNull: false
       }
     },
     {
-      tableName: 'admin_users',
+      tableName: 'surveys',
       freezeTableName: true,
       timestamps: false,
       underscored: true
     }
   );
 
-  // User.sync();
+  // Survey.sync();
 
-  return User;
+  return Survey;
 };

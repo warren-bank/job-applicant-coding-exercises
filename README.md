@@ -78,11 +78,16 @@ npm run-script start
 
 *public access:*
 * [homepage](http://localhost/)
-* [admin login form](http://localhost/admin/login)
+* [admin: login form](http://localhost/admin/login)
 
 *restricted access:*
-* [admin dashboard](http://localhost/admin)
-* [admin logout](http://localhost/admin/logout)
+* [admin: dashboard](http://localhost/admin)
+* [admin: save new survey](http://localhost/admin/new_survey)
+* [admin: view all survey results](http://localhost/admin/show_results)
+* [admin: RESTful data API endpoint, GET all results](http://localhost/admin/restful_data_endpoints/results)
+* [admin: RESTful data API endpoint, GET one result by ID](http://localhost/admin/restful_data_endpoints/result/1)
+* [admin: RESTful data API endpoint, POST new survey](http://localhost/admin/restful_data_endpoints/surveys)
+* [admin: logout](http://localhost/admin/logout)
 
 ### Status
 
