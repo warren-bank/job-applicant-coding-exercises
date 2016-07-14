@@ -54,7 +54,7 @@ module.exports = function(Sequelize, sequelize, data){
         var survey_id = survey.id;
 
         for (i=0; i<answers.length; i++){
-          answers.survey_id = survey_id;
+          answers[i]['survey_id'] = survey_id;
         }
 
         Answer
