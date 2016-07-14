@@ -23,10 +23,10 @@ module.exports = function(Sequelize, sequelize){
     })
     .then(function(results){
       // console.log(JSON.stringify(results));
-      resolve(results);
+      return resolve(results);
     })
     .catch(function(err){
-        reject(err);
+      return reject(err);
     });
 
   });

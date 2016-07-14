@@ -58,7 +58,7 @@ mysql -u root < "./.install/db.sql"
 *summary:*
 * create database `job_applicant_coding_exercise__warren_bank`
 * create user `warren_bank`
-* create tables `sessions`, `admin_users`
+* create tables `sessions`, `admin_users`, `surveys`, `answers`
 * add login credentials for two admin users
   * `warren:bank`
   * `SumoMe:hire`

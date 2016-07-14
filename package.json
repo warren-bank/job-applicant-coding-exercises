@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "debug": "node-debug --hidden node_modules/ ./bin/www"
+    "debug": "node-debug --hidden node_modules/ ./bin/www",
+    "lint" : "jshint --exclude ./node_modules ./"
   },
   "dependencies": {
     "bluebird": "^3.4.1",
@@ -21,5 +22,9 @@
     "passport-local": "^1.0.0",
     "sequelize": "^3.23.4",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.2",
+    "node-inspector": "^0.12.8"
   }
 }

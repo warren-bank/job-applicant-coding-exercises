@@ -4,10 +4,13 @@ module.exports = function(){
   var router    = express.Router();
   var passport  = require('passport');
 
-  router.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/admin/login');
-  });
+  router.get(
+    '/logout',
+    function(req, res){
+      req.logout();
+      res.redirect('/admin/login');
+    }
+  );
 
   router.get(
     '/login',

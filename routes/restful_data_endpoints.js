@@ -10,9 +10,13 @@ module.exports = function(){
     '/results',
     function(req, res, next) {
       require('./restful_data_endpoints/admin/get_results')(Sequelize, sequelize)
-      .then(function(results){
-        res.json(results);
-      })
+        .then(function(results){
+          res.json({success : true, data : results});
+        })
+        .catch(function(err){
+          res.json({success : false, error : err.message});
+        })
+      ;
     }
   );
 
@@ -20,9 +24,13 @@ module.exports = function(){
     '/result/:survey_id',
     function (req, res, next) {
       require('./restful_data_endpoints/admin/get_result')(Sequelize, sequelize, req.params.survey_id)
-      .then(function(results){
-        res.json(results);
-      })
+        .then(function(results){
+          res.json({success : true, data : results});
+        })
+        .catch(function(err){
+          res.json({success : false, error : err.message});
+        })
+      ;
     }
   );
 
@@ -30,9 +38,13 @@ module.exports = function(){
     '/surveys',
     function(req, res, next) {
       require('./restful_data_endpoints/admin/post_surveys')(Sequelize, sequelize, req.body)
-      .then(function(results){
-        res.json(results);
-      })
+        .then(function(results){
+          res.json({success : true, data : results});
+        })
+        .catch(function(err){
+          res.json({success : false, error : err.message});
+        })
+      ;
     }
   );
 
