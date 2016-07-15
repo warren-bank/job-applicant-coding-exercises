@@ -1,16 +1,18 @@
-var express = require('express');
-var app = module.exports = express();
+var express      = require('express');
+var app          = express();
+module.exports   = app;
 
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+var path         = require('path');
+var favicon      = require('serve-favicon');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var bodyParser   = require('body-parser');
 
-var session = require('./persistence/session')(app);
-var routes  = require('./routes/index');
-var admin   = require('./routes/admin');
-var restful = require('./routes/restful_data_endpoints');
+var session      = require('./persistence/session')(app);
+var public_site  = require('./routes/public_site');
+var public_data  = require('./routes/public_data');
+var admin_site   = require('./routes/admin_site');
+var admin_data   = require('./routes/admin_data');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,12 +34,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/',     public_site);
+app.use('/data', public_data);
 
 // a public facing login page is followed by "admin" authentication.
 // all other "admin" routes (including the restful API) require an active session.
-app.use('/admin', admin);
-app.use('/admin/restful_data_endpoints', restful);
+app.use('/admin',      admin_site);
+app.use('/admin/data', admin_data);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

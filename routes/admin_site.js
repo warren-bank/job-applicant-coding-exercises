@@ -54,9 +54,9 @@ module.exports = function(){
   );
 
   router.get(
-    '/show_results',
+    '/survey_results',
     function(req, res, next) {
-      res.render('admin/show_results', { title: 'Survey Results' });
+      res.render('admin/survey_results', { title: 'Survey Results' });
     }
   );
 

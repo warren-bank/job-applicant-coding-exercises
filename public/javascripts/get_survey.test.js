@@ -7,10 +7,8 @@ jQuery(document).ready(function($){
   };
 
   $.ajax({
-    "url"         : "http://localhost/admin/data/surveys",
-    "method"      : "POST",
-    "contentType" : "application/json",
-    "data"        : '{"title":"title!", "question":"question?", "answers":["yes", "no", "maybe"]}',
+    "url"         : "http://localhost/data/survey",
+    "method"      : "GET",
     "dataType"    : "text",
     "success"     : function(result){    display(result);},
     "error"       : function(x,y,result){display("error: " + result);}

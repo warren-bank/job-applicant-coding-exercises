@@ -1,5 +1,8 @@
 jQuery(document).ready(function($){
 
+  var survey_id = 1;
+  var answer_id = 1;
+
   var display = function (msg){
     console.log(msg);
 
@@ -7,10 +10,8 @@ jQuery(document).ready(function($){
   };
 
   $.ajax({
-    "url"         : "http://localhost/admin/data/surveys",
-    "method"      : "POST",
-    "contentType" : "application/json",
-    "data"        : '{"title":"title!", "question":"question?", "answers":["yes", "no", "maybe"]}',
+    "url"         : "http://localhost/data/answer/" + survey_id + "/" + answer_id,
+    "method"      : "PUT",
     "dataType"    : "text",
     "success"     : function(result){    display(result);},
     "error"       : function(x,y,result){display("error: " + result);}
