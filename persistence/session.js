@@ -28,7 +28,7 @@ module.exports = function(app){
     saveUninitialized: false,
     rolling: true,
     cookie: {
-      path: '/admin',
+      path: '/',
       httpOnly: true,
       secure: false,
       maxAge: 600000
