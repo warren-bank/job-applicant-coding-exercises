@@ -17,23 +17,36 @@ module.exports = function(Sequelize, sequelize, session){
 
     Survey.hasMany(Answer);
 
-    Survey.findOne({
+    Survey
+    .findOne({
       attributes: ['id', 'title', 'question'],
-      include: [{
-        model: Answer,
-        attributes: ['answer_id', 'answer'],
-        where: { survey_id: Sequelize.col('survey.id') }
-      }],
       where: {id: {
         not : id_blacklist
       }},
       order: [
         Sequelize.fn( 'RAND' )
-      ]
+      ],
+      raw: true
     })
-    .then(function(results){
-      // console.log(JSON.stringify(results));
-      return resolve(results);
+    .then(function(survey){
+        return Answer
+        .findAll({
+          attributes: ['answer_id', 'answer'],
+          where: { survey_id: survey.id },
+          order: [
+            ['answer_id', 'ASC']
+          ],
+          raw: true
+        })
+        .then(function(answers){
+          survey.answers = answers;
+
+          // console.log(JSON.stringify(survey));
+          return resolve(survey);
+        })
+       .catch(function(err){
+         return reject(err);
+       });
     })
     .catch(function(err){
       return reject(err);

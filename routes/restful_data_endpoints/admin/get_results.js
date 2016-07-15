@@ -19,7 +19,8 @@ module.exports = function(Sequelize, sequelize){
       order: [
         ['id', 'ASC'],
         [Answer, 'answer_id', 'ASC']
-      ]
+      ],
+      raw: true
     })
     .then(function(results){
       // console.log(JSON.stringify(results));
