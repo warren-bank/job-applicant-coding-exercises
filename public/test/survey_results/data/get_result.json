@@ -1,0 +1,25 @@
+{
+    "success": true,
+    "data": {
+        "id": 1,
+        "title": "Survey 01",
+        "question": "Favorite color?",
+        "answers": [{
+            "answer_id": 1,
+            "answer": "red",
+            "count": 190
+        }, {
+            "answer_id": 2,
+            "answer": "white",
+            "count": 3
+        }, {
+            "answer_id": 3,
+            "answer": "blue",
+            "count": 10
+        }, {
+            "answer_id": 4,
+            "answer": "gold",
+            "count": 40
+        }]
+    }
+}

@@ -1,0 +1,100 @@
+{
+    "success": true,
+    "data": [{
+        "id": 1,
+        "title": "Survey 01",
+        "answers": [{
+            "answer_id": 1,
+            "count": 190
+        }, {
+            "answer_id": 2,
+            "count": 3
+        }, {
+            "answer_id": 3,
+            "count": 10
+        }, {
+            "answer_id": 4,
+            "count": 40
+        }]
+    }, {
+        "id": 2,
+        "title": "Survey 02",
+        "answers": [{
+            "answer_id": 1,
+            "count": 160
+        }, {
+            "answer_id": 2,
+            "count": 40
+        }, {
+            "answer_id": 3,
+            "count": 180
+        }, {
+            "answer_id": 4,
+            "count": 80
+        }]
+    }, {
+        "id": 3,
+        "title": "Survey 03",
+        "answers": [{
+            "answer_id": 1,
+            "count": 40
+        }, {
+            "answer_id": 2,
+            "count": 30
+        }, {
+            "answer_id": 3,
+            "count": 10
+        }, {
+            "answer_id": 4,
+            "count": 90
+        }]
+    }, {
+        "id": 4,
+        "title": "Survey 04",
+        "answers": [{
+            "answer_id": 1,
+            "count": 120
+        }, {
+            "answer_id": 2,
+            "count": 45
+        }, {
+            "answer_id": 3,
+            "count": 85
+        }, {
+            "answer_id": 4,
+            "count": 25
+        }]
+    }, {
+        "id": 5,
+        "title": "Survey 05",
+        "answers": [{
+            "answer_id": 1,
+            "count": 30
+        }, {
+            "answer_id": 2,
+            "count": 35
+        }, {
+            "answer_id": 3,
+            "count": 25
+        }, {
+            "answer_id": 4,
+            "count": 15
+        }]
+    }, {
+        "id": 6,
+        "title": "Survey 06",
+        "answers": [{
+            "answer_id": 1,
+            "count": 70
+        }, {
+            "answer_id": 2,
+            "count": 49
+        }, {
+            "answer_id": 3,
+            "count": 79
+        }, {
+            "answer_id": 4,
+            "count": 119
+        }]
+    }]
+}

@@ -1,5 +1,18 @@
 extends ../layout
 
-block content
-  h1= title
-  p Welcome to #{title}
+block head_css
+  link(rel='stylesheet', href='/site/js/jQuery-Visualize/css/basic.css')
+  link(rel='stylesheet', href='/site/js/jQuery-Visualize/css/visualize.css')
+  link(rel='stylesheet', href='/site/js/jQuery-Visualize/css/visualize-dark.css')
+  link(rel='stylesheet', href='/site/js/lightGallery/css/lightgallery.min.css')
+  link(rel='stylesheet', href='/page/survey_results/css/style.css')
+
+block head_js
+  script(type='text/javascript' src='/site/js/jquery-1.12.4.min.js')
+  script(type='text/javascript' src='/site/js/jQuery-Visualize/js/excanvas.js')
+  script(type='text/javascript' src='/site/js/jQuery-Visualize/js/visualize.jQuery.js')
+  script(type='text/javascript' src='/site/js/lightGallery/js/lightgallery.min.js')
+  script(type='text/javascript' src='/page/survey_results/js/init.js')
+
+block content_container
+  div

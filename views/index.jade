@@ -1,9 +1,9 @@
 extends layout
 
-block header
-  script(type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
-  script(type='text/javascript' src='/javascripts/get_survey.test.js')
-  script(type='text/javascript' src='/javascripts/put_answer.test.js')
+block append head_js
+  script(type='text/javascript' src='/site/js/jquery-1.12.4.min.js')
+  script(type='text/javascript' src='/test/js/get_survey.test.js')
+  script(type='text/javascript' src='/test/js/put_answer.test.js')
 
 block content
   h1= title
