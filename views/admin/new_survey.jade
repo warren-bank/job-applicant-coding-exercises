@@ -1,9 +1,17 @@
 extends ../layout
 
+block append head_css
+  link(rel='stylesheet', href='/page/new_survey/css/style.css')
+
 block append head_js
-  script(type='text/javascript' src='/site/js/jquery-1.12.4.min.js')
-  script(type='text/javascript' src='/test/js/post_survey.test.js')
+  script(type='text/javascript' src='/site/js/angular2/js/es6-shim.min.js')
+  script(type='text/javascript' src='/site/js/angular2/js/angular2-polyfills.min.js')
+  script(type='text/javascript' src='/site/js/angular2/js/system.js')
+  script(type='text/javascript' src='/site/js/angular2/js/Rx.min.js')
+  script(type='text/javascript' src='/site/js/angular2/js/angular2.min.js')
+  script(type='text/javascript' src='/site/js/angular2/js/http.min.js')
 
 block content
-  h1= title
-  p Welcome to #{title}
+  <!-- Load the App -->
+  <script src="/page/new_survey/js/init.js"></script>
+  <new-survey></new-survey>

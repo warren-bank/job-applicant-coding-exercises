@@ -36,3 +36,7 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# TypeScript dependencies for compiling Angular2 app(s)
+typescript/node_modules
+typescript/npm-debug.log*

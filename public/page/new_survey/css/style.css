@@ -1,0 +1,39 @@
+form ul.answers span.glyphicon {
+	vertical-align: middle;
+	font-size: 2em;
+	cursor: pointer;
+}
+form ul.answers span.answer_index {
+	display: inline-block;
+	padding: 5px;
+	margin-top: 5px;
+}
+
+.panel-group {
+	margin-top: 20px;
+	border-top: 1px solid #ccc;
+	padding-top: 20px;
+}
+.panel-group survey-summary {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+.panel-group survey-summary .panel-body > .col-md-1,
+.panel-group survey-summary .panel-body > .col-md-10 {
+	float: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+.panel-group survey-summary .panel-body > .col-md-1 {
+	margin-bottom: 0;
+}
+.panel-group survey-summary .panel-body > .col-md-10 {
+	font-size: 1.25em;
+}
+.panel-group survey-summary.panel-success > .panel-body {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}

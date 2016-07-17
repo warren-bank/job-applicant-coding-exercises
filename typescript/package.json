@@ -1,0 +1,22 @@
+{
+  "name": "angular2-pages",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "tsconfig_new_survey" : "./node_modules/.bin/tsconfig ./page/new_survey",
+    "tsc_new_survey"      : "./node_modules/.bin/tsc --project ./page/new_survey"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-beta.17",
+    "systemjs": "0.19.6",
+    "es6-promise": "^3.2.1",
+    "es6-shim": "^0.35.1",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-beta.6",
+    "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "tsconfig-glob": "^0.4.3",
+    "typescript": "^1.8.10"
+  }
+}

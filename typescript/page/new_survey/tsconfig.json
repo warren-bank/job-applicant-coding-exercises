@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "moduleResolution": "node",
+        "target": "es5",
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "rootDir": "../../../public/page/new_survey/js/",
+        "outFile": "../../../public/page/new_survey/js/app.js"
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "filesGlob": "**/*.ts",
+    "files": [
+        "js/app.ts"
+    ]
+}
