@@ -1,0 +1,11 @@
+extends layout
+
+block top_navmenu_active_element
+  - var active_navmenu_element = 'home'; //default
+
+block top_navmenu_elements
+  -
+    var navmenu_elements = {
+      'home':  {url: '/', icon: ''},
+      'login': {url: '/admin/login', icon: 'glyphicon-log-in'}
+    };

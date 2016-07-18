@@ -1,0 +1,18 @@
+block top_navmenu_active_element
+
+block top_navmenu_elements
+
+nav(class="navbar navbar-inverse" id="top_navmenu")
+  div(class="container-fluid")
+    ul(class="nav navbar-nav navbar-right")
+      each navmenu_element_data, navmenu_element_title in navmenu_elements
+        if active_navmenu_element === navmenu_element_title
+          - var navmenu_element_class = 'active';
+        else
+          - var navmenu_element_class = '';
+        li(class=navmenu_element_class)
+          a(href=navmenu_element_data.url, title=navmenu_element_title)
+            if navmenu_element_data.icon
+              span(class="glyphicon " + navmenu_element_data.icon)
+              span!= '&nbsp;&nbsp;'
+            span= navmenu_element_title

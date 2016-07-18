@@ -11,6 +11,8 @@ html
       link(rel='stylesheet', href='/site/css/style.css')
     block head_js
   body
+    block top_navmenu
+      include navmenu/public
     block content_container
       div(class='container-fluid')
         block content

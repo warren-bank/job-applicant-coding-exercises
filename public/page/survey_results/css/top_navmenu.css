@@ -1,0 +1,73 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+
+/*
+notes:
+======
+  - this page doesn't include the twitter bootstrap css library.
+  - the problem is that one of the final tweaks I made to the site
+    was to add a universal top navmenu that uses bootstrap classes for styling.
+  - the root of the navmenu is the element: nav#top_navmenu
+  - this page will include namespaced styles to format its DOM,
+    though there's not much point in blindly importing all the relevant bootstrap rules,
+    because this page wouldn't display the normal top navmenu properly anyway.
+    it needs some tweaking..
+
+update:
+=======
+  - for the logout span.glyphicon to display its icon,
+    an external embedded font needs to be loaded: Glyphicons Halflings
+  - this is normally included in the full bootstrap bundle,
+    but the imported css file (above) will only load the font
+    and define the css classes that use it.
+*/
+
+nav#top_navmenu,
+nav#top_navmenu ul.nav,
+nav#top_navmenu ul.nav > li,
+nav#top_navmenu ul.nav > li > a {
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+
+nav#top_navmenu {
+	position: absolute;
+	z-index: 9999;
+	top: 0px;
+	right: 0px;
+	overflow: visible;
+	text-align: right;
+	background-color: transparent;
+}
+nav#top_navmenu ul.nav {
+	list-style: none;
+	background-color: #222;
+	border: 1px solid #080808;
+	border-radius: 4px;
+}
+nav#top_navmenu ul.nav > li {
+	display: inline-block;
+}
+nav#top_navmenu ul.nav > li + li {
+	border-left: 4px solid #000;
+}
+nav#top_navmenu ul.nav > li > a {
+	display: inline-block;
+	padding: 10px;
+	background-color: transparent;
+	color: #9d9d9d;
+	text-decoration: none;
+	line-height: 20px;
+	font-size: 14px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+nav#top_navmenu ul.nav > li > a:hover {
+	color: #fff;
+}
+nav#top_navmenu ul.nav > li.active > a,
+nav#top_navmenu ul.nav > li.active > a:hover {
+	color: #fff;
+	background-color: #080808;
+}
+nav#top_navmenu ul.nav > li.active > a span.glyphicon {
+}

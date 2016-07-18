@@ -1,4 +1,7 @@
-extends ../layout
+extends layout
+
+block top_navmenu_active_element
+  - var active_navmenu_element = 'survey results';
 
 block head_css
   link(rel='stylesheet', href='/site/js/jQuery-Visualize/css/basic.css')
@@ -6,6 +9,7 @@ block head_css
   link(rel='stylesheet', href='/site/js/jQuery-Visualize/css/visualize-dark.css')
   link(rel='stylesheet', href='/site/js/lightGallery/css/lightgallery.min.css')
   link(rel='stylesheet', href='/page/survey_results/css/style.css')
+  link(rel='stylesheet', href='/page/survey_results/css/top_navmenu.css')
 
 block head_js
   script(type='text/javascript' src='/site/js/jquery-1.12.4.min.js')

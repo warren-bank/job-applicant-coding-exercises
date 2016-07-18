@@ -1,5 +1,8 @@
 extends layout
 
+block top_navmenu_active_element
+  - var active_navmenu_element = 'home';
+
 block append head_css
   link(rel='stylesheet', href='/page/homepage/css/style.css')
 

@@ -42,7 +42,7 @@ module.exports = function(){
   router.get(
     '/?',
     function(req, res, next) {
-      res.render('admin/index', { title: 'Admin Dashboard' });
+      res.render('admin/survey_results', { title: 'Survey Results' });
     }
   );
 
@@ -53,6 +53,8 @@ module.exports = function(){
     }
   );
 
+  // the navmenu won't include this link, but I'll keep it active because my github commit comments made several references to it.
+  // the page it loads is an alias to the admin "dashboard" link: /admin
   router.get(
     '/survey_results',
     function(req, res, next) {

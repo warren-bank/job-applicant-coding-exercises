@@ -1,4 +1,7 @@
-extends ../layout
+extends layout
+
+block top_navmenu_active_element
+  - var active_navmenu_element = 'new survey';
 
 block append head_css
   link(rel='stylesheet', href='/page/new_survey/css/style.css')

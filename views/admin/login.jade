@@ -1,5 +1,8 @@
 extends ../layout
 
+block top_navmenu_active_element
+  - var active_navmenu_element = 'login';
+
 block content
   h1= title
   include fragments/login.html
