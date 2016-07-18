@@ -1,0 +1,28 @@
+.loading .glyphicon.spinning {
+	animation: spin 1s infinite linear;
+	-webkit-animation: spin2 1s infinite linear;
+
+	display: inline-block;
+	margin: 30px auto;
+	font-size: 5em;
+}
+@keyframes spin {
+	from { transform: scale(1) rotate(0deg); }
+	to { transform: scale(1) rotate(360deg); }
+}
+@-webkit-keyframes spin2 {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+
+form ul.answers span.answer_index {
+	display: inline-block;
+	padding: 5px;
+	margin-top: 5px;
+}
+
+.panel-group {
+	margin-top: 20px;
+	border-top: 1px solid #ccc;
+	padding-top: 20px;
+}

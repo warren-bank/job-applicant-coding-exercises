@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "tsconfig_new_survey" : "./node_modules/.bin/tsconfig ./page/new_survey",
-    "tsc_new_survey"      : "./node_modules/.bin/tsc --project ./page/new_survey"
+    "tsc_new_survey"      : "./node_modules/.bin/tsc --project ./page/new_survey",
+
+    "tsconfig_homepage" : "./node_modules/.bin/tsconfig ./page/homepage",
+    "tsc_homepage"      : "./node_modules/.bin/tsc --project ./page/homepage"
   },
   "dependencies": {
     "angular2": "^2.0.0-beta.17",

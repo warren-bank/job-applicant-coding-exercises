@@ -22,6 +22,10 @@ module.exports = function(Sequelize, sequelize, survey_id){
       ]
     })
     .then(function(results){
+      if (! results){
+        return reject(new Error('No search results found.'));
+      }
+
       // console.log(JSON.stringify(results));
       return resolve(results);
     })

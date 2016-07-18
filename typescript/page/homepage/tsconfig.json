@@ -6,8 +6,8 @@
         "experimentalDecorators": true,
         "noImplicitAny": false,
         "sourceMap": false,
-        "rootDir": "../../../public/page/new_survey/js/",
-        "outFile": "../../../public/page/new_survey/js/app.js"
+        "rootDir": "../../../public/page/homepage/js/",
+        "outFile": "../../../public/page/homepage/js/app.js"
     },
     "exclude": [
         "node_modules"

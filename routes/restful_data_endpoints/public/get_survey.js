@@ -29,6 +29,10 @@ module.exports = function(Sequelize, sequelize, session){
       raw: true
     })
     .then(function(survey){
+        if (! survey){
+          return reject(new Error('No more surveys are available.'));
+        }
+
         return Answer
         .findAll({
           attributes: ['answer_id', 'answer'],

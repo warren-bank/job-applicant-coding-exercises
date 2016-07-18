@@ -7,118 +7,11 @@ import { HTTP_PROVIDERS, Http, Headers }      from 'angular2/http';
 
 import 'rxjs/add/operator/map';
 
+import { IAnswer, Answer }                    from '../../../site/classes/Answer';
+import { ISurvey, Survey }                    from '../../../site/classes/Survey';
+import { Helper }                             from '../../../site/classes/Helper';
+
 enableProdMode();
-
-// ------------------------------------------------------------------
-
-interface IAnswer {
-  survey_id : number;
-  answer_id : number;
-  answer    : string;
-  count     : number;
-}
-
-class Answer {
-  survey_id : number;
-  answer_id : number;
-  answer    : string;
-  count     : number;
-
-  constructor(data: IAnswer) {
-    this.survey_id = data.survey_id;
-    this.answer_id = data.answer_id;
-    this.answer    = data.answer;
-    this.count     = data.count;
-  }
-
-  // create new answer that doesn't yet exist in the database
-  static construct_new(answer: string, answer_id?: number) : Answer {
-    if (answer === ''){return;}
-
-    let data: IAnswer = {
-      survey_id : 0,
-      answer_id : (answer_id || 0),
-      answer    : answer,
-      count     : 0
-    };
-    return new Answer(data);
-  }
-
-  // create a partial representation of an answer with incomplete data retrieved from the database 
-  static construct_existing(survey_id: number, answer_id: number, count: number, answer?: string) : Answer {
-    let data: IAnswer = {
-      survey_id : survey_id,
-      answer_id : answer_id,
-      count     : count,
-      answer    : (answer || '')
-    };
-    return new Answer(data);
-  }
-
-}
-
-// ------------------------------------------------------------------
-
-interface ISurvey {
-  id       : number;
-  title    : string;
-  question : string;
-  answers  : Array<Answer>;
-}
-
-class Survey {
-  id       : number;
-  title    : string;
-  question : string;
-  answers  : Array<Answer>;
-
-  constructor(data: ISurvey) {
-    this.id       = data.id;
-    this.title    = data.title;
-    this.question = data.question;
-    this.answers  = data.answers;
-  }
-
-  // create new survey that doesn't yet exist in the database
-  static construct_new(title: string, question : string) : Survey {
-    if (title    === ''){return;}
-    if (question === ''){return;}
-
-    let data: ISurvey = {
-      id       : 0,
-      title    : title,
-      question : question,
-      answers  : []
-    };
-    return new Survey(data);
-  }
-
-  // create a partial representation of an survey with incomplete data retrieved from the database 
-  static construct_existing(id: number, title: string, answers: Array<IAnswer>) : Survey {
-    let data: ISurvey = {
-      id       : id,
-      title    : title,
-      question : '',
-      answers  : []
-    };
-
-    for (let answer of answers) {
-      data.answers.push( Answer.construct_existing(id, answer.answer_id, answer.count) );
-    }
-
-    return new Survey(data);
-  }
-
-  total_answer_count(): number {
-    let count = 0;
-
-    for (let answer of this.answers) {
-      count += answer.count;
-    }
-    return count;
-  }
-
-}
 
 // ------------------------------------------------------------------
 
@@ -144,20 +37,6 @@ class Survey {
 })
 class Survey_Summary_Component {
   survey: Survey;
-}
-
-// ------------------------------------------------------------------
-
-class Helper {
-
-  static letters: Array<string> = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-
-  static convert_index_to_letter(index: number): string {
-    if ((index < 0) || (index > Helper.letters.length)){return '';}
-
-    return Helper.letters[ index ];
-  }
-
 }
 
 // ------------------------------------------------------------------

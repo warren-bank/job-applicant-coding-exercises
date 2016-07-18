@@ -7,26 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-/// <reference path="../../../node_modules/typescript/lib/lib.es6.d.ts" />
-System.register("app", ['angular2/platform/browser', 'angular2/core', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1, context_1) {
+System.register("site/classes/Answer", [], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var browser_1, core_1, http_1;
-    var Answer, Survey, Survey_Summary_Component, Helper, New_Survey_App;
+    var Answer;
     return {
-        setters:[
-            function (browser_1_1) {
-                browser_1 = browser_1_1;
-            },
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (http_1_1) {
-                http_1 = http_1_1;
-            },
-            function (_1) {}],
+        setters:[],
         execute: function() {
-            core_1.enableProdMode();
             Answer = (function () {
                 function Answer(data) {
                     this.survey_id = data.survey_id;
@@ -52,13 +39,28 @@ System.register("app", ['angular2/platform/browser', 'angular2/core', 'angular2/
                     var data = {
                         survey_id: survey_id,
                         answer_id: answer_id,
-                        count: count,
+                        count: (count || 0),
                         answer: (answer || '')
                     };
                     return new Answer(data);
                 };
                 return Answer;
             }());
+            exports_1("Answer", Answer);
+        }
+    }
+});
+System.register("site/classes/Survey", ["site/classes/Answer"], function(exports_2, context_2) {
+    "use strict";
+    var __moduleName = context_2 && context_2.id;
+    var Answer_1;
+    var Survey;
+    return {
+        setters:[
+            function (Answer_1_1) {
+                Answer_1 = Answer_1_1;
+            }],
+        execute: function() {
             Survey = (function () {
                 function Survey(data) {
                     this.id = data.id;
@@ -83,16 +85,16 @@ System.register("app", ['angular2/platform/browser', 'angular2/core', 'angular2/
                     return new Survey(data);
                 };
                 // create a partial representation of an survey with incomplete data retrieved from the database 
-                Survey.construct_existing = function (id, title, answers) {
+                Survey.construct_existing = function (id, title, answers, question) {
                     var data = {
                         id: id,
                         title: title,
-                        question: '',
+                        question: (question || ''),
                         answers: []
                     };
                     for (var _i = 0, answers_1 = answers; _i < answers_1.length; _i++) {
                         var answer = answers_1[_i];
-                        data.answers.push(Answer.construct_existing(id, answer.answer_id, answer.count));
+                        data.answers.push(Answer_1.Answer.construct_existing(id, answer.answer_id, (answer.count ? answer.count : 0), (answer.answer ? answer.answer : '')));
                     }
                     return new Survey(data);
                 };
@@ -106,6 +108,59 @@ System.register("app", ['angular2/platform/browser', 'angular2/core', 'angular2/
                 };
                 return Survey;
             }());
+            exports_2("Survey", Survey);
+        }
+    }
+});
+System.register("site/classes/Helper", [], function(exports_3, context_3) {
+    "use strict";
+    var __moduleName = context_3 && context_3.id;
+    var Helper;
+    return {
+        setters:[],
+        execute: function() {
+            Helper = (function () {
+                function Helper() {
+                }
+                Helper.convert_index_to_letter = function (index) {
+                    if ((index < 0) || (index > Helper.letters.length)) {
+                        return '';
+                    }
+                    return Helper.letters[index];
+                };
+                Helper.letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+                return Helper;
+            }());
+            exports_3("Helper", Helper);
+        }
+    }
+});
+/// <reference path="../../../node_modules/typescript/lib/lib.es6.d.ts" />
+System.register("page/new_survey/js/app", ['angular2/platform/browser', 'angular2/core', 'angular2/http', 'rxjs/add/operator/map', "site/classes/Survey", "site/classes/Helper"], function(exports_4, context_4) {
+    "use strict";
+    var __moduleName = context_4 && context_4.id;
+    var browser_1, core_1, http_1, Survey_1, Helper_1;
+    var Survey_Summary_Component, New_Survey_App;
+    return {
+        setters:[
+            function (browser_1_1) {
+                browser_1 = browser_1_1;
+            },
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (_1) {},
+            function (Survey_1_1) {
+                Survey_1 = Survey_1_1;
+            },
+            function (Helper_1_1) {
+                Helper_1 = Helper_1_1;
+            }],
+        execute: function() {
+            core_1.enableProdMode();
             // ------------------------------------------------------------------
             Survey_Summary_Component = (function () {
                 function Survey_Summary_Component() {
@@ -121,19 +176,6 @@ System.register("app", ['angular2/platform/browser', 'angular2/core', 'angular2/
                     })
                 ], Survey_Summary_Component);
                 return Survey_Summary_Component;
-            }());
-            // ------------------------------------------------------------------
-            Helper = (function () {
-                function Helper() {
-                }
-                Helper.convert_index_to_letter = function (index) {
-                    if ((index < 0) || (index > Helper.letters.length)) {
-                        return '';
-                    }
-                    return Helper.letters[index];
-                };
-                Helper.letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-                return Helper;
             }());
             // ------------------------------------------------------------------
             New_Survey_App = (function () {
@@ -182,7 +224,7 @@ System.register("app", ['angular2/platform/browser', 'angular2/core', 'angular2/
                     data = this.sort_results_descending_by_total_answer_count(data);
                     for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
                         var survey = data_1[_i];
-                        this.old_surveys.push(Survey.construct_existing(survey.id, survey.title, survey.answers));
+                        this.old_surveys.push(Survey_1.Survey.construct_existing(survey.id, survey.title, survey.answers));
                     }
                 };
                 New_Survey_App.prototype.add_answer = function (new_answer_DOM) {
@@ -243,7 +285,7 @@ System.register("app", ['angular2/platform/browser', 'angular2/core', 'angular2/
                             count: 0
                         });
                     }
-                    this.new_surveys.unshift(Survey.construct_existing(data.survey_id, this.new_survey_data.title, answers));
+                    this.new_surveys.unshift(Survey_1.Survey.construct_existing(data.survey_id, this.new_survey_data.title, answers));
                     // clear the form fields and reset internal state
                     new_title_DOM.value = '';
                     new_question_DOM.value = '';
@@ -251,7 +293,7 @@ System.register("app", ['angular2/platform/browser', 'angular2/core', 'angular2/
                     this.new_survey_data = undefined;
                 };
                 New_Survey_App.prototype.convert_index_to_letter = function (index) {
-                    return Helper.convert_index_to_letter(index);
+                    return Helper_1.Helper.convert_index_to_letter(index);
                 };
                 New_Survey_App = __decorate([
                     core_1.Component({
