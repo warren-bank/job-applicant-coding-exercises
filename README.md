@@ -49,7 +49,7 @@ npm install
 ### Initialize the MySQL database
 
 ```bash
-mysql -u root < "./.install/db.sql"
+npm run-script wipe
 ```
 
 *notes:*
@@ -62,6 +62,7 @@ mysql -u root < "./.install/db.sql"
 * add login credentials for two admin users
   * `warren:bank`
   * `SumoMe:hire`
+* add 6 sample surveys, each having 4 possible answers and a random distribution of results
 
 ### Start the Web Server
 
@@ -72,25 +73,24 @@ npm run-script start
 
 ## Public Web Host
 
-*TBD*
+[Red Hat OpenShift](https://developers.openshift.com/overview/basic-terminology.html)
 
 ### Site Map
 
 *public access:*
-* [homepage](http://localhost/)
-* [RESTful data API endpoint, GET one survey](http://localhost/data/survey)
-* [RESTful data API endpoint, PUT one answer](http://localhost/data/answer/<surveyId>/<answerId>)
-* [admin: login form](http://localhost/admin/login)
+* [homepage: visitors are asked to complete surveys](http://surveys-warrenbank.rhcloud.com/)
+* [login form: admin users can authenticate identity](http://surveys-warrenbank.rhcloud.com/admin/login)
+* [RESTful data API endpoint, GET one survey](http://surveys-warrenbank.rhcloud.com/data/survey)
+* [RESTful data API endpoint, PUT one answer](http://surveys-warrenbank.rhcloud.com/data/answer/<surveyId>/<answerId>)
 
 *restricted access:*
-* [admin: dashboard](http://localhost/admin)
-* [admin: save new survey](http://localhost/admin/new_survey)
-* [admin: view all survey results](http://localhost/admin/survey_results)
-* [admin: RESTful data API endpoint, GET all results](http://localhost/admin/data/results)
-* [admin: RESTful data API endpoint, GET one result by ID](http://localhost/admin/data/result/<surveyId>)
-* [admin: RESTful data API endpoint, POST new survey](http://localhost/admin/data/surveys)
-* [admin: logout](http://localhost/admin/logout)
+* [admin: view all survey results](http://surveys-warrenbank.rhcloud.com/admin)
+* [admin: save new survey](http://surveys-warrenbank.rhcloud.com/admin/new_survey)
+* [admin: logout](http://surveys-warrenbank.rhcloud.com/admin/logout)
+* [admin: RESTful data API endpoint, GET all results](http://surveys-warrenbank.rhcloud.com/admin/data/results)
+* [admin: RESTful data API endpoint, GET one result by ID](http://surveys-warrenbank.rhcloud.com/admin/data/result/<surveyId>)
+* [admin: RESTful data API endpoint, POST new survey](http://surveys-warrenbank.rhcloud.com/admin/data/surveys)
 
 ### Status
 
-*in development*
+completed, deployed

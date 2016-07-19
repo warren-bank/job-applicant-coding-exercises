@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# handle database  
+if [ -z "$OPENSHIFT_MYSQL_DB_HOST" ]
+then
+   echo 1>&2
+   echo "Could not find mysql database.  Please run:" 1>&2
+   echo "rhc cartridge add -a $OPENSHIFT_APP_NAME -c mysql-5.1" 1>&2
+   echo "then make a sample commit (add whitespace somewhere) and re-push" 1>&2
+   echo 1>&2
+ 
+   exit 5
+fi
+
+# configuration
+any_one_table_name=admin_users
+relative_path_to_sql_import_file=.install/db/aggregations/2_run_in_production.sql
+
+# check if database was imported allready
+if ! /usr/bin/mysql -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" -e "select * from $any_one_table_name;" "$OPENSHIFT_APP_NAME" > /dev/null 2>&1
+then
+   echo "Database schema not yet added, it will be import now."
+      
+   # store the current working directory into a temporary variable
+   _cd=`pwd`
+   echo "cwd: $_cd"
+
+   # import sql script
+   cd "$OPENSHIFT_REPO_DIR"
+   cat "$relative_path_to_sql_import_file" | /usr/bin/mysql -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" "$OPENSHIFT_APP_NAME" > /dev/null 2>&1
+
+   # change directory back to where we started, cleanup temporary variable
+   cd "$_cd"
+   unset _cd
+else
+   echo "Database already configured."
+fi

@@ -1,0 +1,2 @@
+DROP database IF EXISTS job_applicant_coding_exercise__warren_bank;
+CREATE database job_applicant_coding_exercise__warren_bank;
