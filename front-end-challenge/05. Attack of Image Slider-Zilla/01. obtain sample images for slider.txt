@@ -1,0 +1,56 @@
+jQuery(document).ready(function($){
+  var $icons, svg_icons
+  $icons = $('li.icon[data-id] > img[width="64"]')
+  svg_icons = []
+  $icons.each(function(){
+    var $icon, title, png_url, svg_url
+    $icon = $(this)
+    title = $icon.attr('title')
+    png_url = $icon.attr('src')
+    svg_url = png_url.replace(/icons\/png\/\d+/, 'icons/svg').replace(/\.png$/, '.svg')
+    svg_icons.push([title, svg_url])
+  })
+  console.log( JSON.stringify(svg_icons))
+})
+
+/*
+-------------------------------------------------------------------------------
+input:
+======
+http://www.flaticon.com/packs/social-network-logo-collection
+
+output:
+=======
+[
+    ["Facebook", "https://image.flaticon.com/icons/svg/145/145802.svg"],
+    ["Twitter", "https://image.flaticon.com/icons/svg/145/145812.svg"],
+    ["Instagram", "https://image.flaticon.com/icons/svg/145/145805.svg"],
+    ["Google plus", "https://image.flaticon.com/icons/svg/145/145804.svg"],
+    ["Linkedin", "https://image.flaticon.com/icons/svg/145/145807.svg"],
+    ["Pinterest", "https://image.flaticon.com/icons/svg/145/145808.svg"],
+    ["VK", "https://image.flaticon.com/icons/svg/145/145813.svg"],
+    ["Tumblr", "https://image.flaticon.com/icons/svg/145/145811.svg"],
+    ["Behance", "https://image.flaticon.com/icons/svg/145/145799.svg"],
+    ["Soundcloud", "https://image.flaticon.com/icons/svg/145/145809.svg"],
+    ["Dribbble", "https://image.flaticon.com/icons/svg/145/145801.svg"],
+    ["Flickr", "https://image.flaticon.com/icons/svg/145/145803.svg"],
+    ["Swarm", "https://image.flaticon.com/icons/svg/145/145810.svg"],
+    ["Badoo", "https://image.flaticon.com/icons/svg/145/145798.svg"],
+    ["Deviantart", "https://image.flaticon.com/icons/svg/145/145800.svg"],
+    ["Lastfm", "https://image.flaticon.com/icons/svg/145/145806.svg"]
+]
+
+-------------------------------------------------------------------------------
+input:
+======
+http://www.flaticon.com/packs/multimedia-collection
+
+output (curated):
+=================
+[
+    ["Back", "https://image.flaticon.com/icons/svg/126/126492.svg"],
+    ["Next", "https://image.flaticon.com/icons/svg/126/126490.svg"]
+]
+
+-------------------------------------------------------------------------------
+*/

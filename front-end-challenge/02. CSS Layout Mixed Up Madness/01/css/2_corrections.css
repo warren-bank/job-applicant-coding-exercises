@@ -1,0 +1,24 @@
+/*
+ * ------------------------------------
+ * whitespace:
+ *   padding per column = (1.5%)(2)
+ *   padding per row    = (3% /col)(3 col/row) = 9%
+ *   margin per gutter  = 1.5%
+ *   margin per row     = (1.5% /gutter)(2 gutters/row) = 3%
+ * non-whitespace:
+ *   total per row      = 100% - (9% padding per row) - 3% (margin per row) = 88%
+ *   total per column   = (88% /row)(1 row / 3 col) = 29.333% > 29.3%
+ * ------------------------------------
+ */
+
+article {
+    margin-left: 0;
+    padding: 1.5%;
+    width: 29.3%;
+}
+article:nth-child(3n) {
+    margin-right: 0;
+}
+article:nth-child(3n+1) {
+    clear: left;
+}

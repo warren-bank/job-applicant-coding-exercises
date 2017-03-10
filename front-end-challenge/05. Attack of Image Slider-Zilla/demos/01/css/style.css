@@ -1,0 +1,97 @@
+.image_slider_container {
+	width: 90%;
+	margin: 1em auto;
+}
+
+.image_slider_container {
+    position: relative;
+    z-index: 0;
+}
+.image_slider_container > .slider_nav {
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+	cursor: pointer;
+}
+.image_slider_container > .slider_nav_reverse {
+    left: 0px;
+}
+.image_slider_container > .slider_nav_forward {
+    right: 0px;
+}
+.image_slider_container > .slider_nav_reverse,
+.image_slider_container > .slider_nav_forward {
+	width: 150px;
+	height: 150px;
+}
+.image_slider_container > .slider_nav_reverse img,
+.image_slider_container > .slider_nav_forward img {
+	display: inline-block;
+    margin: 10%;
+    width: 80%;
+	height: 80%;
+}
+.image_slider_container > .slider_contents_viewport {
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+	left: 150px;
+    right: 150px;
+	height: 150px;
+	overflow: hidden;
+}
+.image_slider_container > .slider_contents_viewport > .slider_contents {
+	white-space: nowrap;
+	position: relative;
+}
+.image_slider_container > .slider_contents_viewport > .slider_contents > img {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+}
+.image_slider_container > .slider_contents_viewport > .slider_contents > img + img {
+	margin-left: 10px;
+}
+
+.image_slider_container > .slider_nav {
+	border: 1px solid #333;
+}
+.image_slider_container > .slider_contents_viewport {
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+}
+
+/* ------------------------------------
+ * animation notes:
+ *   - the static width of ".slider_contents":
+ *         (150 px/img)(16 images) + (10 px/gutter)(16-1 gutters) = 2400px + 150px = 2550px
+ *   - duration @ 1 second/image:
+ *         (1 sec/img)(16 images) = 16s
+ * ------------------------------------
+ */
+.image_slider_container > .slider_contents_viewport > .slider_contents {
+	animation-delay: 0ms;
+    animation-duration: 16s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-name: image_slider;
+	animation-play-state: paused;
+	animation-fill-mode: both;
+}
+.image_slider_container > .slider_nav_reverse:hover  ~ .slider_contents_viewport > .slider_contents {
+	animation-play-state: running;
+	animation-direction: reverse;
+}
+.image_slider_container > .slider_nav_forward:hover ~ .slider_contents_viewport > .slider_contents {
+	animation-play-state: running;
+	animation-direction: normal;
+}
+@keyframes image_slider {
+	from {
+		left: 0px;
+	}
+
+	to {
+		left: -2550px;
+	}
+}

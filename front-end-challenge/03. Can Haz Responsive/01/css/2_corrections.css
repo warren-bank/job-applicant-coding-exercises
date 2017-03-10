@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------
+ * mobile first: assume a narrow screen
+ * ------------------------------------
+ */
+
+.top {
+	height: auto;
+}
+.content {
+	width: 100%;
+}
+.content > article {
+	display: inline-block;
+	float: none;
+	height: auto;
+	margin: 0;
+	margin-top: 10px;
+	overflow: hidden;
+	min-height: 100px;
+}
+.content > article,
+.content > article > img {
+	width: 100%;
+}
+
+/*
+ * ------------------------------------
+ * collapse unwanted whitespace
+ * ------------------------------------
+ */
+
+.content {
+	font-size: 0px;
+	line-height: 0px;
+}
+.content > article > .intro {
+	font-size: 16px;
+	line-height: 20px;
+}
+
+/*
+ * ------------------------------------
+ * wide enough for 2 columns
+ *     (380px)(2) + (10px)(1) = 770px
+ *     (100% - 1.5%)/2 = (98.5%)/2 = 49.25%
+ * ------------------------------------
+ */
+@media screen and (min-width: 770px) and (max-width: 1159px) {
+	.content > article {
+		width: 49.25%;
+	}
+	.content > article:nth-child(2n) {
+		margin-left: 1.5%;
+	}
+}
+
+/*
+ * ------------------------------------
+ * wide enough for 3 columns:
+ *     (380px)(3) + (10px)(2) = 1160px
+ *     (100% - 3%)/3 = (97%)/3 = 32.3%
+ * ------------------------------------
+ */
+@media screen and (min-width: 1160px) {
+	.content {
+		max-width: 1200px;
+	}
+	.content > article {
+		width: 32.3%;
+	}
+	.content > article {
+		margin-right: 1.5%;
+	}
+	.content > article:nth-child(3n) {
+		margin-right: 0;
+	}
+}

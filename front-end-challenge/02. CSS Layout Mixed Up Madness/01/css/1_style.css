@@ -1,0 +1,27 @@
+body {
+  background: #eee;
+}
+.container {
+  width: 1024px;
+  margin: 0 auto;
+  background: #ddd;
+}
+nav {
+  background: white;
+  padding: 15px;
+}
+nav a {
+  text-transform: uppercase;
+}
+article {
+  background: white;
+  box-shadow: 0 0 25px #999;
+  width: 30%;
+  margin: 1.5%;
+  padding: 15px;
+  float: left;
+}
+article img {
+  width: 100%;
+  height: auto;
+}

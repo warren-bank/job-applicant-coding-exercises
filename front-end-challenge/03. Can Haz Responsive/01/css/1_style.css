@@ -1,0 +1,56 @@
+/* 
+Feel free to switch to a preprocessor (Sass, Less, Stylus, etc...) if you would like to, if not that's A-OK also! 
+
+Do not use any library that adds in a grid system, or would require you to change the HTML in any way. Everything you need is here already, with the exception of some media queries.
+
+Don't worry about beautification of the page. We think it's pretty enough. We only want it to be responsive.
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+  box-sizing: border-box; 
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #eee;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  margin: 0;
+}
+.top {
+  text-align: center;
+  padding: 15px;
+  height: 90px;
+}
+.top, article {
+  background: white;
+  box-shadow: 0 0 15px #aaa;
+}
+article {
+  margin: 10px;
+  width: 380px;
+  height: 380px;
+  float: left;
+  position: relative;
+}
+img {
+  width: 380px;
+  height: 380px;
+}
+.content {
+  width: 1200px;
+  margin: 0 auto;
+}
+.intro {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0,0,0,.5);
+  color: white;
+  padding: 15px;
+  left: 0;
+  right: 0;
+}
